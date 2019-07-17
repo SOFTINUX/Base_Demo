@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/SampleApi/bin/Debug/netcoreapp2.2/WebApplication.dll",
+            "program": "${workspaceFolder}/src/SoftinuxBase_SampleApi/bin/Debug/netcoreapp2.2/WebApplication.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/src/SampleApi/bin/Debug/netcoreapp2.2/",
+            "cwd": "${workspaceFolder}/src/SoftinuxBase_SampleApi/bin/Debug/netcoreapp2.2/",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
