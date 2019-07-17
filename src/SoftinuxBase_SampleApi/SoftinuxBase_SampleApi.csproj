@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>$(BaseOutputPath)bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Styles\**;Scripts\**\*.min.js;Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtCore.Infrastructure" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SoftinuxBase.Infrastructure, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\Base\SoftinuxBase.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="SoftinuxBase.Security.Common, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\Base\SoftinuxBase.Security.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), SoftinuxBase_SampleApi.sln))</SolutionDir>
+    <OutDir Condition=" '$(OutDir)' == '' ">bin\Debug\$(TargetFramework)\</OutDir>
+  </PropertyGroup>
+
+  <PropertyGroup Label="CopyDependencies">
+    <linuxMacosRessourcesCopy>cp -R '$(SolutionDir)../../webressources/'* '$(SolutionDir)$(OutDir)/../'</linuxMacosRessourcesCopy>
+    <linuxMacosCopy>cp '$(SolutionDir)../../Base/'* '$(SolutionDir)$(OutDir)'</linuxMacosCopy>
+    <linuxMacosCopyExtension>mkdir -p '$(SolutionDir)$(OutDir)Extensions/' %26%26 cp -t '$(SolutionDir)$(OutDir)Extensions/' '$(SolutionDir)$(OutDir)SoftinuxBase_SampleApi.dll' '$(SolutionDir)$(OutDir)SoftinuxBase_SampleApi.xml'</linuxMacosCopyExtension>
+  </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="xcopy $(SolutionDir)..\..\Base\*.* $(SolutionDir)$(OutDir) /E /Y&#xD;&#xA;xcopy $(SolutionDir)..\..\webressources\*.* $(SolutionDir)$(OutDir)..\ /E /Y" Condition="'$(OS)' == 'Windows_NT'" />
+    <Exec Command="xcopy $(SolutionDir)..\..\webressources\*.* $(SolutionDir)$(OutDir)..\ /E /Y" Condition="'$(OS)' == 'Windows_NT'" />
+    <Exec Command="$(linuxMacosCopy)" Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'false'" />
+    <Exec Command="$(linuxMacosRessourcesCopy)" Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'false'" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mkdir $(SolutionDir)$(OutDir)Extensions&#xD;&#xA;copy $(SolutionDir)$(OutDir)SoftinuxBase_SampleApi.dll $(SolutionDir)$(OutDir)Extensions /Y&#xD;&#xA;copy $(SolutionDir)$(OutDir)SoftinuxBase_SampleApi.xml $(SolutionDir)$(OutDir)Extensions /Y" Condition="'$(OS)' == 'Windows_NT'" />
+    <Exec Command="$(linuxMacosCopyExtension)" Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'false'" />
+  </Target>
+
+</Project>

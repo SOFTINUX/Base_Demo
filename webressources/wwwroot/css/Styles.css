@@ -1,0 +1,40 @@
+/*
+Copyright © 2017 SOFTINUX. All rights reserved.
+Licensed under the MIT License, Version 2.0. See License.txt in the project root for license information.
+*/
+
+.brandlogo-image {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -2px;
+    background-color: #ffffff;
+}
+
+.singin-brandlogo-image {
+    width: 120px;
+    height: 120px;
+}
+
+.center-cell-button {
+    margin: auto;
+    display: block;
+}
+
+input[readonly].admin-label {
+    background: #fff;
+}
+
+.modal-warning-alternative .modal-header {
+    background-color: #db8b0b;
+}
+
+.modal-warning-alternative .modal-title {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.modal-warning-alternative .modal-footer {
+    background-color: #dedede;
+}

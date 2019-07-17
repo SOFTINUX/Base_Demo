@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/SampleApi/SampleApi.csproj"
+                "${workspaceFolder}/src/SoftinuxBase_SampleApi/SoftinuxBase_SampleApi.csproj"
             ],
             "problemMatcher": "$tsc"
         },
@@ -17,7 +17,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/src/SampleApi/SampleApi.csproj"
+                "${workspaceFolder}/src/SoftinuxBase_SampleApi/SoftinuxBase_SampleApi.csproj"
             ],
             "problemMatcher": "$tsc"
         },
