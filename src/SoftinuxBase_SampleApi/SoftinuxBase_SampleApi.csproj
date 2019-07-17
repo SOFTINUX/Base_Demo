@@ -13,12 +13,22 @@
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+
   <ItemGroup>
     <EmbeddedResource Include="Styles\**;Scripts\**\*.min.js;Views\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ExtCore.Infrastructure" Version="4.1.0" />
+    <PackageReference Include="ExtCore.Data.Abstractions" Version="4.1.0" />
+    <PackageReference Include="ExtCore.Data.Entities.Abstractions" Version="4.1.0" />
+    <PackageReference Include="ExtCore.Data.Entityframework" Version="4.1.0" />
+    <PackageReference Include="ExtCore.Data.Entityframework.Sqlite" Version="4.1.0" />
+    <PackageReference Include="ExtCore.Mvc" Version="4.1.0" />
+    <PackageReference Include="ExtCore.WebApplication" Version="4.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
