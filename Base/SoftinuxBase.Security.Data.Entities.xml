@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftinuxBase.Security.Data.Entities</name>
+    </assembly>
+    <members>
+        <member name="P:SoftinuxBase.Security.Data.Entities.Permission.Id">
+            <summary>
+            Gets or sets primary key: GUID.
+            </summary>
+            <value>
+            Primary key: GUID.
+            </value>
+        </member>
+        <member name="T:SoftinuxBase.Security.Data.Entities.RolePermission">
+            <summary>
+            Links between roles and permissions: permissions assigned to the role.
+            Default value for "Extension": "SoftinuxBase.Security".
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Security.Data.Entities.RolePermission.Id">
+            <summary>
+            Gets or sets primary key: GUID.
+            </summary>
+            <value>
+            Primary key: GUID.
+            </value>
+        </member>
+        <member name="T:SoftinuxBase.Security.Data.Entities.UserPermission">
+            <summary>
+            Links between users and permissions: permissions assigned to the user.
+            </summary>
+        </member>
+    </members>
+</doc>

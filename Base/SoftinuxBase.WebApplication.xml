@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftinuxBase.WebApplication</name>
+    </assembly>
+    <members>
+        <member name="T:SoftinuxBase.WebApplication.ApplicationBuilderExtensions">
+            <summary>
+            Contains the extension methods of the <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder">IApplicationBuilder</see> interface.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.WebApplication.ApplicationBuilderExtensions.UseSoftinuxBase(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Antiforgery.IAntiforgery)">
+            <summary>
+            Executes the Configure actions that configure: error management, logging, anti-forgery, ExtCore, static files.
+            It must be called inside the Configure method
+            of the web application's Startup class in order SoftinuxBase to work properly.
+            </summary>
+            <param name="applicationBuilder_">
+            The application builder passed to the Configure method of the web application's Startup class.
+            </param>
+            <param name="hostingEnvironment_"></param>
+            <param name="loggerFactory_"></param>
+            <param name="configuration_"></param>
+            <param name="antiForgery_"></param>
+        </member>
+        <member name="T:SoftinuxBase.WebApplication.ApplicationStorageContext">
+            <summary>
+            Class that holds the Entity Framework DbContext's DbSets related to some extension
+            (entities in XXX.Data.Entities project) and that also inherits from ExtCore's IStorageContext.
+            </summary>
+        </member>
+        <member name="T:SoftinuxBase.WebApplication.ServiceCollectionExtensions">
+            <summary>
+            Contains the extension methods of the <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection">IServiceCollection</see> interface.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.WebApplication.ServiceCollectionExtensions.AddSoftinuxBase``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Configure : identity, application cookie, corporate logo, ExtCore, anti-forgery.
+            It must be called inside the ConfigureServices method of the web application's Startup class
+            in order SoftinuxBase to work properly.
+            </summary>
+            <param name="services_">
+            The services collection passed to the ConfigureServices method of the web application's Startup class.
+            </param>
+            <param name="configuration_"></param>
+            <param name="extensionsPath_"></param>
+        </member>
+    </members>
+</doc>

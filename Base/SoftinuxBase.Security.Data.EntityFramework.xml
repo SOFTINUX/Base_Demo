@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftinuxBase.Security.Data.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="M:SoftinuxBase.Security.Data.EntityFramework.AspNetUsersRepository.FindByNormalizedUserNameOrEmail(System.String)">
+            <summary>
+            Return true if found, else false.
+            </summary>
+            <param name="value_">normalized string to find.</param>
+            <returns>bool.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Data.EntityFramework.PermissionRepository.AllForUser(System.String)">
+            <summary>
+            Every permission with its extension, linked to user and user's roles.
+            </summary>
+            <param name="userId_"></param>
+            <returns>List of key/value : permission and extension.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Data.EntityFramework.PermissionRepository.Find(SoftinuxBase.Security.Common.Enums.Permission)">
+            <summary>
+            Find a permission by enum value.
+            </summary>
+            <param name="permissionValue_"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

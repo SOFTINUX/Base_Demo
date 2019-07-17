@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftinuxBase.Security.Common</name>
+    </assembly>
+    <members>
+        <member name="F:SoftinuxBase.Security.Common.Attributes.AnyPermissionRequirementAttribute._permissionsByExtension">
+            <summary>
+            Permissions grouped by extension.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.Attributes.AnyPermissionRequirementAttribute.#ctor(SoftinuxBase.Security.Common.Enums.Permission[],System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Security.Common.Attributes.AnyPermissionRequirementAttribute"/> class.
+            Allows access when the user has at least one of the claims of type "Permission" with value
+            defined by its level (Admin, Write, Read...) and an extension name (SoftinuxBase.Security, ProjectX.ExtensionY...).
+            </summary>
+            <param name="permissionLevel_">array of permissions objects containing permission level.</param>
+            <param name="extensionAssemblySimpleName_">array of strings containing the simple name of the assembly extensions.</param>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.Attributes.AnyPermissionRequirementAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Security.Common.Attributes.AnyPermissionRequirementAttribute"/> class.
+            Allows access when the user has at least one of the claims of type "Permission" with value
+            defined by its level (Admin, Write, Read...) and an extension name (SoftinuxBase.Security, ProjectX.ExtensionY...).
+            </summary>
+            <param name="permissionsForExtensions_">Values with format ExtensionName.Permission.</param>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.Attributes.ClaimRequirementAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Security.Common.Attributes.ClaimRequirementAttribute"/> class.
+            </summary>
+            <param name="claimType_"></param>
+            <param name="claimValue_"></param>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.Attributes.PermissionRequirementAttribute.#ctor(SoftinuxBase.Security.Common.Enums.Permission,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Security.Common.Attributes.PermissionRequirementAttribute"/> class.
+            Allows access when the user has the permission : a claim of type "Permission" with value
+            defined by its level (Admin, Write, Read...) and an extension name (SoftinuxBase.Security, ProjectX.ExtensionY...).
+            Or the user has a permission with same extension name but higher level (Admin when Write is the minimum requested to be granted access).
+            </summary>
+            <param name="permissionName_"></param>
+            <param name="extensionAssemblySimpleName_"></param>
+        </member>
+        <member name="P:SoftinuxBase.Security.Common.Attributes.PermissionRequirementAttribute.PermissionIdentifier">
+            <summary>
+            Gets permission unique identifier.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.Filters.ClaimRequirementFilter.#ctor(System.Security.Claims.Claim)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Security.Common.Filters.ClaimRequirementFilter"/> class.
+            </summary>
+            <param name="claim_"></param>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.Filters.ClaimRequirementFilter.OnAuthorization(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
+            <summary>
+            TODO Document this.
+            </summary>
+            <param name="context_"></param>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.PermissionHelper.GetPermissionName(SoftinuxBase.Security.Common.Enums.Permission)">
+            <summary>
+            Extension method to get the string representation of the enum value.
+            </summary>
+            <param name="permissionLevel_"></param>
+            <returns>string represent permission level.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.PermissionHelper.GetExtensionPermissionIdentifier(SoftinuxBase.Security.Common.Enums.Permission,System.String)">
+            <summary>
+            Formats the unique identifier that associates a permission level and an extension name.
+            </summary>
+            <param name="permissionLevel_"></param>
+            <param name="extensionName_">The extension name, equal to assembly name, given by Assembly.GetName().Name.</param>
+            <returns>string reprensent extension name with permission level.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.PermissionHelper.GetPermissionLevel(System.Security.Claims.Claim)">
+            <summary>
+            From the value of a claim which type is Permission, gets the second part of the string that represents the permission level (Admin, Write...).
+            </summary>
+            <param name="claim_"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.PermissionHelper.GetPermissionLevel(System.String)">
+            <summary>
+            From the value of a claim which type is Permission, gets the second part of the string that represents the permission level (Admin, Write...).
+            </summary>
+            <param name="claimValue_"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.PermissionHelper.GetExtensionName(System.Security.Claims.Claim)">
+            <summary>
+            From the value of a claim which type is Permission, gets the first part of the string that represents the name of extension concerned by this permission level.
+            </summary>
+            <param name="claim_"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.PermissionHelper.GetExtensionName(System.String)">
+            <summary>
+            From the value of a claim which type is Permission, gets the first part of the string that represents the name of extension concerned by this permission level.
+            </summary>
+            <param name="claimValue_"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.Security.Common.PermissionHelper.GetLowerOrEqual(SoftinuxBase.Security.Common.Enums.Permission)">
+            <summary>
+            Get the list of values from Permission enum that are lower or equal to a value (if Write, then Read and Write).
+            </summary>
+            <param name="permission_"></param>
+            <returns></returns>
+        </member>
+        <member name="F:SoftinuxBase.Common.Constants.SoftinuxBaseSecurity">
+            <summary>
+            Assembly name of SoftinuxBase.Security.
+            </summary>
+        </member>
+    </members>
+</doc>

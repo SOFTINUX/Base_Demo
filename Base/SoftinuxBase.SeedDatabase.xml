@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftinuxBase.SeedDatabase</name>
+    </assembly>
+    <members>
+        <member name="M:SoftinuxBase.SeedDatabase.Controllers.SeedDatabaseController.SaveUsers">
+            <summary>
+            Save users and fill _createdUsers class variable;.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.SeedDatabase.Controllers.SeedDatabaseController.SaveRoles">
+            <summary>
+            Save the roles and populate _createdRoles class variable.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.SeedDatabase.Controllers.SeedDatabaseController.SaveUserPermission">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:SoftinuxBase.SeedDatabase.Controllers.SeedDatabaseController.SaveRolePermission">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:SoftinuxBase.SeedDatabase.Controllers.SeedDatabaseController.SavePermissions">
+            <summary>
+            Save the roles and populate _createdPermissions class variable.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.SeedDatabase.Controllers.SeedDatabaseController.SaveUserPermission(System.String,SoftinuxBase.Security.Data.Entities.User,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="permissionId_"></param>
+             <param name="user_"></param>
+             <param name="scope_"></param>
+        </member>
+        <member name="M:SoftinuxBase.SeedDatabase.Controllers.SeedDatabaseController.SaveRolePermission(System.String,System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="roleId_"></param>
+             <param name="permissionId_"></param>
+             <param name="extension_"></param>
+             <returns></returns>
+        </member>
+        <member name="P:SoftinuxBase.SeedDatabase.ExtensionMetadata.CurrentAssembly">
+            <summary>
+            Gets the current assembly object.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.SeedDatabase.ExtensionMetadata.CurrentAssemblyPath">
+            <summary>
+            Gets the full path with assembly name.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.SeedDatabase.ExtensionMetadata.Name">
+            <summary>
+            Gets the name of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.SeedDatabase.ExtensionMetadata.Url">
+            <summary>
+            Gets the URL of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.SeedDatabase.ExtensionMetadata.Version">
+            <summary>
+            Gets the version of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.SeedDatabase.ExtensionMetadata.Authors">
+            <summary>
+            Gets the authors of the extension (separated by commas).
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.SeedDatabase.ExtensionMetadata.Description">
+            <summary>
+            Gets the description of the extension (separated by commas).
+            </summary>
+        </member>
+    </members>
+</doc>

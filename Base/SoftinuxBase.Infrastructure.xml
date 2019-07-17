@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftinuxBase.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:SoftinuxBase.Infrastructure.ControllerBase">
+            <summary>
+            Abstract controller parent of all controllers, that enforces IStorage dependency injection and authenticated access.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.ControllerBase._loggerFactory">
+            <summary>
+            Logger factory interface provided by services container.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.ControllerBase._storage">
+            <summary>
+            Storage interface provided by services container.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.ControllerBase.#ctor(ExtCore.Data.Abstractions.IStorage,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Infrastructure.ControllerBase"/> class.
+            </summary>
+            <param name="storage_">Storage interface provided by services container.</param>
+            <param name="loggerFactory_">Logger factory interface optionally provided by services container.</param>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.ControllerBase.CreateRedirectToSelfResult">
+            <summary>
+            Redirects to same url but looses model.
+            </summary>
+            <returns>Return url string.</returns>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.CorporateConfiguration.Name">
+            <summary>
+            Gets or sets corporation name.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.CorporateConfiguration.BrandLogo">
+            <summary>
+            Gets or sets corporation logo.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.CorporateConfiguration.LoginBackgroundImage">
+            <summary>
+            Gets or sets login background picture.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.CorporateConfiguration.RegisterNewUsers">
+            <summary>
+            Gets or sets a value indicating whether user can self register.
+            </summary>
+        </member>
+        <member name="T:SoftinuxBase.Infrastructure.Interfaces.IExtensionMetadata">
+            <summary>
+            Implement this interface to allow your extension to define one or more menu items,
+            and provide scripts and stylesheets elements to include in the main web application.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Interfaces.IExtensionMetadata.StyleSheets">
+            <summary>
+            Gets list of style sheets of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Interfaces.IExtensionMetadata.Scripts">
+            <summary>
+            Gets list of scripts of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Interfaces.IExtensionMetadata.MenuGroups">
+            <summary>
+            Gets menu group of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Interfaces.IExtensionMetadata.IsAvailableForPermissions">
+            <summary>
+            Gets a value indicating whether the extension is visible in permissions configuration panel.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Interfaces.IExtensionMetadata.CurrentAssembly">
+            <summary>
+            Gets extension assembly.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Interfaces.IExtensionMetadata.CurrentAssemblyPath">
+            <summary>
+            Gets path to extension assembly location.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.MenuGroup.#ctor(System.String,System.UInt32,System.Collections.Generic.IEnumerable{SoftinuxBase.Infrastructure.MenuItem},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Infrastructure.MenuGroup"/> class.
+            </summary>
+            <param name="name_">set menu group display name.</param>
+            <param name="position_">set position of menu group.</param>
+            <param name="menuItems_">list of menu items to add to this menu group.</param>
+            <param name="fontAwesomeClass_">icon linked to menu group.</param>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuGroup.Name">
+            <summary>
+            Gets menu group display name.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuGroup.Position">
+            <summary>
+            Gets menu group position.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuGroup.FontAwesomeClass">
+            <summary>
+            Gets the fa-xxx class to render the associated icon.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuGroup.MenuItems">
+            <summary>
+            Gets children menu items.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.MenuItem._anyRequiredRoles">
+            <summary>
+            If not empty, any of these roles is required (access granted if a single role is possessed by current user).
+            Menu item is decorated with Microsoft.AspNetCore.Authorization.AuthorizeAttribute with Roles.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.MenuItem._allRequiredPermissionIdentifiers">
+            <summary>
+            If not empty, all these values are required (access granted if all matching Permission claims are possessed by current user).
+            Menu item is decorated with either Microsoft.AspNetCore.Authorization.AuthorizeAttribute with Policy
+            or Infrastructure.Attributes.PermissionRequirementAttribute.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.MenuItem.#ctor(System.String,System.String,System.UInt32,System.String,System.Collections.Generic.List{SoftinuxBase.Security.Common.Attributes.PermissionRequirementAttribute},System.Collections.Generic.List{Microsoft.AspNetCore.Authorization.AuthorizeAttribute})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Infrastructure.MenuItem"/> class.
+            </summary>
+            <param name="url_">set menu item route url.</param>
+            <param name="name_">set menu item display name.</param>
+            <param name="position_">set menu item position in menu group.</param>
+            <param name="fontAwesomeClass_">set menu item icon. If null, "fa-circle-o" will be used.</param>
+            <param name="infrastructureAuthorizeAttributes_">set a list of <see cref="T:SoftinuxBase.Security.Common.Attributes.PermissionRequirementAttribute"/>.</param>
+            <param name="microsoftAuthorizeAttributes_">set a list of <see cref="T:Microsoft.AspNetCore.Authorization.AuthorizeAttribute"/>.</param>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuItem.Url">
+            <summary>
+            Gets route url.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuItem.Name">
+            <summary>
+            Gets menu item display name.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuItem.Position">
+            <summary>
+            Gets menu item position in list.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.MenuItem.FontAwesomeClass">
+            <summary>
+            Gets the fa-xxx class to render the associated icon.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.Script.#ctor(System.String,System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Infrastructure.Script"/> class.
+            </summary>
+            <param name="url_">set url to load script.</param>
+            <param name="isJsModule_">set if script is a js module.</param>
+            <param name="position_">set position of script in the list of scripts included in the page.</param>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Script.Url">
+            <summary>
+            Gets url of script included in the page.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Script.IsJsModule">
+            <summary>
+            Gets a value indicating whether get if script is imported as module.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.Script.Position">
+            <summary>
+            Gets position of the script in the list of scripts included in the page.
+            </summary>
+        </member>
+        <member name="T:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode">
+            <summary>
+            Type of Sql Provider.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.Sqlite">
+            <summary>
+            SqLite.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.Mssql">
+            <summary>
+            MS Sql.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.Postgresql">
+            <summary>
+            PostgreSql.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.MysqlMariadb">
+            <summary>
+            MySql or MariaDB.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.MysqlOracle">
+            <summary>
+            Oracle.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.Sqlcompact4">
+            <summary>
+            MsSql Server Compact version 4.0.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.Sqlcompact35">
+            <summary>
+            MsSql Server Compact version 3.5.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper.ProviderCode.Msaccess">
+            <summary>
+            MS Access.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper._storage">
+            <summary>
+            Storage interface provided by services container.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper._logger">
+            <summary>
+            Logger factory interface provided by services container.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper._providerCode">
+            <summary>
+            Type of database provider.
+            </summary>
+        </member>
+        <member name="F:SoftinuxBase.Infrastructure.SqlHelper._connectionString">
+            <summary>
+            Connection string to database.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.ExecuteSqlResource(System.String)">
+            <summary>
+            Execute SQL code from an embedded resource SQL file.
+            TODO make this code and replace at good place.
+            </summary>
+            <param name="resourcePath_">internal ressource path.</param>
+            <returns>result of sql execution.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.#ctor(ExtCore.Data.Abstractions.IStorage,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Infrastructure.SqlHelper"/> class.
+            </summary>
+            <param name="storage_">Storage interface provided by services container.</param>
+            <param name="loggerFactory_">Logger factory interface provided by services container.</param>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.GetProvider">
+            <summary>
+            Get the Entity Framework provider.
+            </summary>
+            <returns>ProviderCode.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.ExecuteSqlScript(System.String)">
+            <summary>
+            Execute sql script string.
+            </summary>
+            <param name="sqlScript_">sql script to execute.</param>
+            <returns>result of sql script execution.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.ExecuteSqlFileWithTransaction(System.String)">
+            <summary>
+            Execute SQL code from a plain SQL file.
+            </summary>
+            <param name="filePath_">Path of the file to execute.</param>
+            <returns>Any error information, else null when no error happened.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.TestSqliteConnection(System.String)">
+            <summary>
+            Test sqlite database connection.
+            </summary>
+            <param name="connectionString_">the connection string to sqlite.</param>
+            <returns>True if can open and close connection, else false.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.TestMsSqlConnection(System.String)">
+            <summary>
+            Test mssql database connection.
+            </summary>
+            <param name="connectionString_">the connection string to MsSql database server.</param>
+            <returns>True if can open and close connection, else false.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.TestPostgresqlConnection(System.String)">
+            <summary>
+            Test PostgreSql database connection.
+            </summary>
+            <param name="connectionString_">the connection string to PostgreSql database server.</param>
+            <returns>True if can open and close connection, else false.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.SqlHelper.TestDbConnection(System.String)">
+            <summary>
+            Test database connection on SqLite, MsSql, PostgreSql.
+            </summary>
+            <param name="connecString_">the connection string to database server.</param>
+            <returns>True if call return true, else false.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.StyleSheet.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Infrastructure.StyleSheet"/> class.
+            </summary>
+            <param name="url_">set url to load css.</param>
+            <param name="position_">set position of css in the list of css included in the page.</param>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.StyleSheet.Url">
+            <summary>
+            Gets url of css included in the page.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Infrastructure.StyleSheet.Position">
+            <summary>
+            Gets position of the css in the list of css included in the page.
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Infrastructure.Tools.StringExtensions.UppercaseFirst(System.String)">
+            <summary>
+            Extend String class to
+            transform first letter of string in upper case.
+            </summary>
+            <param name="s_">string to make first letter in upper case.</param>
+            <returns>return the string with first letter in upper case.</returns>
+        </member>
+    </members>
+</doc>

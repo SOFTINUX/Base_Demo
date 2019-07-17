@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftinuxBase.Barebone</name>
+    </assembly>
+    <members>
+        <member name="M:SoftinuxBase.Barebone.Controllers.BareboneController.#ctor(ExtCore.Data.Abstractions.IStorage,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Barebone.Controllers.BareboneController"/> class.
+            </summary>
+            <param name="storage_">application storage instance.</param>
+            <param name="configuration_">application configuiration object.</param>
+        </member>
+        <member name="M:SoftinuxBase.Barebone.Controllers.BareboneController.Index">
+            <summary>
+            index controller.
+            </summary>
+            <returns>index view.</returns>
+        </member>
+        <member name="M:SoftinuxBase.Barebone.Controllers.BareboneController.Error">
+            <summary>
+            partial view for errors.
+            </summary>
+            <returns>error view.</returns>
+        </member>
+        <member name="P:SoftinuxBase.Barebone.ExtensionMetadata.CurrentAssembly">
+            <inheritdoc />
+            <summary>
+            Gets the current assembly object.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Barebone.ExtensionMetadata.CurrentAssemblyPath">
+            <inheritdoc />
+            <summary>
+            Gets the full path with assembly name.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Barebone.ExtensionMetadata.Name">
+            <summary>
+            Gets the name of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Barebone.ExtensionMetadata.Url">
+            <summary>
+            Gets the URL of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Barebone.ExtensionMetadata.Version">
+            <summary>
+            Gets the version of the extension.
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Barebone.ExtensionMetadata.Authors">
+            <summary>
+            Gets the authors of the extension (separated by commas).
+            </summary>
+        </member>
+        <member name="P:SoftinuxBase.Barebone.ExtensionMetadata.Description">
+            <summary>
+            Gets the description of the extension (separated by commas).
+            </summary>
+        </member>
+        <member name="M:SoftinuxBase.Barebone.ViewComponents.MenuViewComponent.InvokeAsync">
+            <summary>
+            Asynchronously builds menu.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.Barebone.ViewModels.Shared.Menu.MenuViewModelFactory.FindOrCreateMenuGroup(ExtCore.Data.Abstractions.IStorage,Microsoft.Extensions.Logging.ILoggerFactory,System.Collections.Generic.IDictionary{System.String,SoftinuxBase.Barebone.ViewModels.Shared.MenuGroup.MenuGroupViewModel},SoftinuxBase.Infrastructure.MenuGroup,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Finds the MenuGroupViewModel in menuGroupViewModels_ or creates and returns it.
+            </summary>
+            <param name="storage_"></param>
+            <param name="loggerFactory_"></param>
+            <param name="menuGroupViewModels_"></param>
+            <param name="menuGroup_"></param>
+            <param name="logger_"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftinuxBase.Barebone.ViewModels.ViewModelFactoryBase.#ctor(ExtCore.Data.Abstractions.IStorage,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SoftinuxBase.Barebone.ViewModels.ViewModelFactoryBase"/> class.
+            </summary>
+            <param name="storage_"></param>
+            <param name="loggerFactory_">Optional.</param>
+        </member>
+    </members>
+</doc>
